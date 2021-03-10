@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
-public interface DepartmentNecessaryProductMappper extends ProductMapper {
+public interface DepartmentNecessaryProductMappper {
     DepartmentNecessaryProductMappper INSTANCE = Mappers.getMapper(DepartmentNecessaryProductMappper.class);
 
     DepartmentNecessaryProduct departmentNecessaryProductDTOToDepartmentNecessaryProduct(DepartmentNecessaryProductDTO departmentNecessaryProductDTO);
