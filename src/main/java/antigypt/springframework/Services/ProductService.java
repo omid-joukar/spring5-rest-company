@@ -1,8 +1,8 @@
 package antigypt.springframework.Services;
 
-import antigypt.springframework.api.v1.model.DepartmentDTO;
+
 import antigypt.springframework.api.v1.model.ProductDTO;
-import antigypt.springframework.api.v1.model.ProductTypeDTO;
+
 import java.util.List;
 
 public interface ProductService {
@@ -11,8 +11,8 @@ public interface ProductService {
     ProductDTO updateProductByDTO(Long id,ProductDTO productDTO);
     void deleteProducttById(Long id);
     boolean isNew(ProductDTO productDTO);
-    List<ProductDTO> findAllByName(String productName);
-    List<ProductDTO> findAllBbyDepartment(DepartmentDTO departmentDTO);
-    List<ProductDTO> findAllByProductType(ProductTypeDTO productType);
+    List<ProductDTO> findAllByName(String productName,Long departmentId);
+    List<ProductDTO> findAllBbyDepartment(Long departmentId);
+    List<ProductDTO> findAllByProductType(Long productTypeId,Long departmentId);
 
 }

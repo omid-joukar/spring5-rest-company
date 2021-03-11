@@ -4,6 +4,7 @@ import antigypt.springframework.api.v1.mapper.ProductMapper;
 import antigypt.springframework.api.v1.model.DepartmentDTO;
 import antigypt.springframework.api.v1.model.ProductDTO;
 import antigypt.springframework.api.v1.model.ProductTypeDTO;
+import antigypt.springframework.domain.Department;
 import antigypt.springframework.domain.Product;
 import antigypt.springframework.exceptions.ResourceNotFoundException;
 import antigypt.springframework.repositories.DepartmentRepository;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -71,17 +73,35 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductDTO> findAllByName(String productName) {
-        return null;
+    public List<ProductDTO> findAllByName(String productName , Long departmentId) {
+        Department foundedDepartment = departmentRepository.findById(departmentId).get();
+        return productRepository.findAllByProductName(productName)
+                .stream()
+                .filter(product ->
+                            product.getDepartmentList().contains(foundedDepartment))
+                .map(productMapper::productToProductDTO)
+                .collect(Collectors.toList());
+
     }
 
     @Override
-    public List<ProductDTO> findAllBbyDepartment(DepartmentDTO departmentDTO) {
-        return null;
+    public List<ProductDTO> findAllBbyDepartment(Long departmentId) {
+        Department foundedDepartment = departmentRepository.findById(departmentId).get();
+        return productRepository.findAll()
+                .stream()
+                .filter(product -> product.getDepartmentList().contains(foundedDepartment))
+                .map(productMapper::productToProductDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public List<ProductDTO> findAllByProductType(ProductTypeDTO productType) {
-        return null;
+    public List<ProductDTO> findAllByProductType(Long productTypeId ,Long departmentId) {
+        Department foundedDepartment = departmentRepository.findById(departmentId).get();
+        return productRepository.findAll()
+                .stream()
+                .filter(product -> product.getDepartmentList().contains(foundedDepartment))
+                .filter(product -> product.getProductType().getProductTypeId().equals(productTypeId))
+                .map(productMapper::productToProductDTO)
+                .collect(Collectors.toList());
     }
 }
