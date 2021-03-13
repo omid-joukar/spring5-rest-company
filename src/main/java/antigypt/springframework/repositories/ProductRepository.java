@@ -1,6 +1,6 @@
 package antigypt.springframework.repositories;
 
-import antigypt.springframework.api.v1.model.ProductDTO;
+
 import antigypt.springframework.domain.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -7,5 +7,6 @@ public enum ProductTypeName {
     MILK,
     SUGAR,
     CUPS_PLATES,
-    TOMATO
+    TOMATO,
+    ORANGE
 }

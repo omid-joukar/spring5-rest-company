@@ -31,12 +31,19 @@ public class ProductServiceImpl implements ProductService {
         this.departmentRepository = departmentRepository;
     }
 
+    @SneakyThrows
     @Override
-    public ProductDTO createNewProduct(ProductDTO productDTO) {
+    public ProductDTO createNewProduct(ProductDTO productDTO,Long departmentId) {
+        Optional<Department> departmentOptional = departmentRepository.findById(departmentId);
+        if (!departmentOptional.isPresent()){
+            throw new ResourceNotFoundException("id is invalid : "+ departmentId);
+        }
+        Department foundedDepartment = departmentOptional.get();
         Product savedProduct = productRepository.save(productMapper.productDTOToProduct(productDTO));
+        savedProduct.getDepartmentList().add(foundedDepartment);
         ProductDTO returnedDTO = productMapper.productToProductDTO(savedProduct);
         returnedDTO.setProductUrl("/api/v1/products/"+savedProduct.getProductId());
-        return null;
+        return returnedDTO;
     }
 
     @SneakyThrows

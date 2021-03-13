@@ -6,7 +6,7 @@ import antigypt.springframework.api.v1.model.ProductDTO;
 import java.util.List;
 
 public interface ProductService {
-    ProductDTO createNewProduct(ProductDTO productDTO);
+    ProductDTO createNewProduct(ProductDTO productDTO,Long departmentId);
     ProductDTO findProductById(Long id);
     ProductDTO updateProductByDTO(Long id,ProductDTO productDTO);
     void deleteProducttById(Long id);
