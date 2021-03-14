@@ -17,10 +17,12 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class ProductServiceImplTest {
@@ -33,7 +35,7 @@ class ProductServiceImplTest {
     private static final String PRODUCT_COUNT = "13";
     private static final String SERIAL_NUMBER = "serial of product";
     private static final String WEIGHT = "1.0";
-    private static final String PRODUCT_NAME = "ORANGEN";
+    private static final String PRODUCT_NAME = String.valueOf(ProductTypeName.ORANGE);
     private static final Long PRODUCT_TYPE_ID = 1L;
     private static final String PHONENUMBER = "12345678";
     private static final String EMAIL = "omid@gmail.com";
@@ -68,9 +70,11 @@ class ProductServiceImplTest {
     ProductServiceImpl productService;
     ProductDTO sendedProductDTO;
     Product savedProduct;
+    Product savedProduct2;
     ProductTypeDTO productTypeDTO;
     ProductType productType;
     Department department;
+    Department department2;
     DepartmentDTO departmentDTO;
     Byte[] getImageBytes;
     Byte[] getSerialBytes;
@@ -106,6 +110,14 @@ class ProductServiceImplTest {
         department.setPhoneNumber(PHONENUMBER);
         department.setDetail(DETAIL);
         department.setAddress(address);
+
+        department2 = new Department();
+        department2.setDepartmentId(2L);
+        department2.setEmail(EMAIL);
+        department2.setPhoneNumber(PHONENUMBER);
+        department2.setDetail(DETAIL);
+        department2.setAddress(address);
+
 
 
 
@@ -158,6 +170,22 @@ class ProductServiceImplTest {
         savedProduct.setSerialNumber(getSerialBytes);
         savedProduct.setWeight(Double.valueOf(WEIGHT));
         savedProduct.setProductName(PRODUCT_NAME);
+        savedProduct.getDepartmentList().add(department);
+
+        savedProduct2 = new Product();
+        savedProduct2.setProductId(2L);
+        savedProduct2.setDetail(DETAIL);
+        savedProduct2.setDiscount(Double.valueOf(DISCOUNT));
+        savedProduct2.setExpirationDate(LocalDate.of(2021,4,14));
+        savedProduct2.setImage(getImageBytes);
+        savedProduct2.setPrice(Double.valueOf(PRICE));
+        savedProduct2.setProduceDate(LocalDate.of(2020,4,14));
+        savedProduct2.setProductCount(Long.valueOf(PRODUCT_COUNT));
+        savedProduct2.setProductType(productType);
+        savedProduct2.setSerialNumber(getSerialBytes);
+        savedProduct2.setWeight(Double.valueOf(WEIGHT));
+        savedProduct2.setProductName(PRODUCT_NAME);
+        savedProduct2.getDepartmentList().add(department2);
 
     }
 
@@ -176,6 +204,16 @@ class ProductServiceImplTest {
 
     @Test
     void findProductById() {
+        when(productRepository.findById(anyLong())).thenReturn(Optional.of(savedProduct));
+        ProductDTO returnedProductDTO = productService.findProductById(1L);
+        assertNotNull(returnedProductDTO);
+        assertEquals(returnedProductDTO.getDiscount(),DISCOUNT);
+        assertEquals(returnedProductDTO.getExpirationDate(),EXPIRATION_DATE);
+        assertEquals(returnedProductDTO.getWeight(),WEIGHT);
+        assertEquals(returnedProductDTO.getDetail(),DETAIL);
+        assertEquals(returnedProductDTO.getProductUrl(),"/api/v1/products/1");
+
+
     }
 
     @Test
@@ -184,14 +222,38 @@ class ProductServiceImplTest {
 
     @Test
     void deleteProducttById() {
+        productService.deleteProducttById(1L);
+        verify(productRepository,times(1)).deleteById(anyLong());
     }
 
     @Test
+    void isNewRepeated() {
+      productRepository.save(savedProduct);
+      when(departmentRepository.findById(anyLong())).thenReturn(Optional.of(department));
+      when(productRepository.findAll()).thenReturn(Arrays.asList(savedProduct));
+      boolean result = productService.isNew(sendedProductDTO,1L);
+      assertEquals(false,result);
+    }
+    @Test
     void isNew() {
+        Product product = new Product();
+        product.setProductName(String.valueOf(ProductTypeName.MILK));
+        product.getDepartmentList().add(department);
+        productRepository.save(product);
+        when(departmentRepository.findById(anyLong())).thenReturn(Optional.of(department));
+        when(productRepository.findAll()).thenReturn(Arrays.asList(product));
+        boolean result = productService.isNew(sendedProductDTO,1L);
+        assertEquals(true,result);
     }
 
     @Test
     void findAllByName() {
+        when(departmentRepository.findById(anyLong())).thenReturn(Optional.of(department));
+        when(productRepository.findAllByProductName(anyString())).thenReturn(Arrays.asList(savedProduct,savedProduct2));
+        List<ProductDTO> productDTOList = productService.findAllByName("ORANGE",1L);
+        assertNotNull(productDTOList);
+        assertEquals(1,productDTOList.size());
+
     }
 
     @Test

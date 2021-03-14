@@ -10,7 +10,7 @@ public interface ProductService {
     ProductDTO findProductById(Long id);
     ProductDTO updateProductByDTO(Long id,ProductDTO productDTO);
     void deleteProducttById(Long id);
-    boolean isNew(ProductDTO productDTO);
+    boolean isNew(ProductDTO productDTO,Long departmentId);
     List<ProductDTO> findAllByName(String productName,Long departmentId);
     List<ProductDTO> findAllBbyDepartment(Long departmentId);
     List<ProductDTO> findAllByProductType(Long productTypeId,Long departmentId);

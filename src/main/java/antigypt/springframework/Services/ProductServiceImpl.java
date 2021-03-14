@@ -43,6 +43,7 @@ public class ProductServiceImpl implements ProductService {
         savedProduct.getDepartmentList().add(foundedDepartment);
         ProductDTO returnedDTO = productMapper.productToProductDTO(savedProduct);
         returnedDTO.setProductUrl("/api/v1/products/"+savedProduct.getProductId());
+        returnedDTO.getProductType().setProductTypeUrl("/api/v1/productTypes/"+savedProduct.getProductType().getProductTypeId());
         return returnedDTO;
     }
 
@@ -55,6 +56,7 @@ public class ProductServiceImpl implements ProductService {
         }
         ProductDTO returnedDTO = productMapper.productToProductDTO(foundedProduct.get());
         returnedDTO.setProductUrl("/api/v1/products/"+id);
+        returnedDTO.getProductType().setProductTypeUrl("/api/v1/productTypes/"+foundedProduct.get().getProductType().getProductTypeId());
         return returnedDTO;
     }
 
@@ -68,10 +70,18 @@ public class ProductServiceImpl implements ProductService {
         productRepository.deleteById(id);
     }
 
+    @SneakyThrows
     @Override
-    public boolean isNew(ProductDTO productDTO) {
+    public boolean isNew(ProductDTO productDTO,Long departmentId) {
+        Optional<Department> departmentOptional = departmentRepository.findById(departmentId);
+        if (!departmentOptional.isPresent()){
+            throw new ResourceNotFoundException("id is invalid : "+departmentId);
+        }
         boolean isProductNew = true;
-        for (Product product : productRepository.findAll()){
+        for (Product product :
+                productRepository.findAll().stream()
+                        .filter(product -> product.getDepartmentList().contains(departmentOptional.get()))
+                        .collect(Collectors.toList())){
             if (product.getProductName().equals(productDTO.getProductName())==true){
                 isProductNew = false;
             }
@@ -79,14 +89,23 @@ public class ProductServiceImpl implements ProductService {
         return isProductNew;
     }
 
+    @SneakyThrows
     @Override
     public List<ProductDTO> findAllByName(String productName , Long departmentId) {
-        Department foundedDepartment = departmentRepository.findById(departmentId).get();
+        Optional<Department> departmentOptional = departmentRepository.findById(departmentId);
+        if (!departmentOptional.isPresent()){
+            throw new ResourceNotFoundException("id is invalid : "+departmentId);
+        }
         return productRepository.findAllByProductName(productName)
                 .stream()
                 .filter(product ->
-                            product.getDepartmentList().contains(foundedDepartment))
-                .map(productMapper::productToProductDTO)
+                            product.getDepartmentList().contains(departmentOptional.get()))
+                .map(product -> {
+                    ProductDTO returnedDTO = productMapper.productToProductDTO(product);
+                    returnedDTO.setProductUrl("/api/v1/products/"+product.getProductId());
+                    returnedDTO.getProductType().setProductTypeUrl("/api/v1/productTypes/"+product.getProductType().getProductTypeId());
+                    return returnedDTO;
+                })
                 .collect(Collectors.toList());
 
     }
@@ -97,7 +116,12 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findAll()
                 .stream()
                 .filter(product -> product.getDepartmentList().contains(foundedDepartment))
-                .map(productMapper::productToProductDTO)
+                .map(product -> {
+                    ProductDTO returnedDTO = productMapper.productToProductDTO(product);
+                    returnedDTO.setProductUrl("/api/v1/products/"+product.getProductId());
+                    returnedDTO.getProductType().setProductTypeUrl("/api/v1/productTypes/"+product.getProductType().getProductTypeId());
+                    return returnedDTO;
+                })
                 .collect(Collectors.toList());
     }
 
@@ -108,7 +132,12 @@ public class ProductServiceImpl implements ProductService {
                 .stream()
                 .filter(product -> product.getDepartmentList().contains(foundedDepartment))
                 .filter(product -> product.getProductType().getProductTypeId().equals(productTypeId))
-                .map(productMapper::productToProductDTO)
+                .map(product -> {
+                    ProductDTO returnedDTO = productMapper.productToProductDTO(product);
+                    returnedDTO.setProductUrl("/api/v1/products/"+product.getProductId());
+                    returnedDTO.getProductType().setProductTypeUrl("/api/v1/productTypes/"+product.getProductType().getProductTypeId());
+                    return returnedDTO;
+                })
                 .collect(Collectors.toList());
     }
 }
