@@ -46,11 +46,8 @@ class DepartmentServiceImplTest {
     private static final String UPDATED_POSTAL_CODE = "1120";
     private static final String UPDATED_REGION = "Wien mitte";
     private static final String UPDATED_PHONENUMBER = "87654321";
-    private static final String BIRTH_DATE = LocalDate.of(1989,9,5).toString();
-    private static final String HIRE_DATE = LocalDate.of(2012,9,5).toString();
     private static final String FIRST_NAME = "Omid";
     private static final String LAST_NAME = "Joukar";
-    private static final String GENDER = "MALE";
     private static final String HOME_PHONE = "123456";
     private static final String MOBILE_PHONE = "1234567890";
 

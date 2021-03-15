@@ -44,20 +44,6 @@ class ProductServiceImplTest {
     private static final String CITY = "Wien";
     private static final String POSTALCODE = "1230";
     private static final String REGION = "Liesing";
-    private static final String UPDATED_ADDRESS_LINE = "Elisenstrasse 1";
-    private static final String UPDATED_COUNTRY = "German";
-    private static final String UPDATED_CITY = "Hamburg";
-    private static final String UPDATED_EMAIL = "ali@gmail.com";
-    private static final String UPDATED_POSTAL_CODE = "1120";
-    private static final String UPDATED_REGION = "Wien mitte";
-    private static final String UPDATED_PHONENUMBER = "87654321";
-    private static final String BIRTH_DATE = LocalDate.of(1989,9,5).toString();
-    private static final String HIRE_DATE = LocalDate.of(2012,9,5).toString();
-    private static final String FIRST_NAME = "Omid";
-    private static final String LAST_NAME = "Joukar";
-    private static final String GENDER = "MALE";
-    private static final String HOME_PHONE = "123456";
-    private static final String MOBILE_PHONE = "1234567890";
     private static final Long PRODUCT_ID = 1L;
 
     @Mock
@@ -258,9 +244,19 @@ class ProductServiceImplTest {
 
     @Test
     void findAllBbyDepartment() {
+        when(departmentRepository.findById(anyLong())).thenReturn(Optional.of(department));
+        when(productRepository.findAll()).thenReturn(Arrays.asList(savedProduct,savedProduct2));
+        List<ProductDTO> productDTOList = productService.findAllBbyDepartment(1L);
+        assertNotNull(productDTOList);
+        assertEquals(Long.valueOf(1),productDTOList.size());
     }
 
     @Test
     void findAllByProductType() {
+        when(productRepository.findAll()).thenReturn(Arrays.asList(savedProduct2,savedProduct));
+        when(departmentRepository.findById(anyLong())).thenReturn(Optional.of(department));
+        List<ProductDTO> productDTOList = productService.findAllByProductType(1L,1L);
+        assertNotNull(productDTOList);
+        assertEquals(1,productDTOList.size());
     }
 }
