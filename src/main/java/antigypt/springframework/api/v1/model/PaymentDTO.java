@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -17,7 +16,7 @@ import java.time.LocalTime;
 @AllArgsConstructor
 public class PaymentDTO {
 
-    
+
     private Double amount;
     private LocalDate paymentDate;
     private LocalTime paymentTime;

@@ -1,17 +1,11 @@
 package antigypt.springframework.api.v1.model;
 
-import antigypt.springframework.domain.Address;
-import antigypt.springframework.domain.Order;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import javax.persistence.*;
 import javax.validation.constraints.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Getter
 @Setter
@@ -26,7 +20,7 @@ public class CustomerDTO {
     @Past
     private String birthDate;
     private String creationDate;
-    @javax.validation.constraints.Email
+    @Email
     private String Email;
     @Min(8)
     @Max(14)
