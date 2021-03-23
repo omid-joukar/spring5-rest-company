@@ -41,6 +41,7 @@ public class CustomerDTO {
     private String postalCode;
     @NotBlank
     private String country;
+    private BuyTrolleyDTO buyTrolley;
     private String customerUrl;
 
 }
