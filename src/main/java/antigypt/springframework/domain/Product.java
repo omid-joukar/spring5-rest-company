@@ -59,7 +59,11 @@ public class Product {
             joinColumns = @JoinColumn(name = "product_Id"),
             inverseJoinColumns = @JoinColumn(name = "department_Id"))
     List<Department> departmentList = new ArrayList<>();
-
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "ProductBuyTrolley",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "buyTrolley_id"))
+    private List<BuyTrolley> buyTroleyList = new ArrayList<>();
 
     //@ManyToOne(cascade = CascadeType.ALL)
     //@JoinColumn(name = "producersId")

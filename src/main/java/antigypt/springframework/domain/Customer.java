@@ -53,7 +53,8 @@ public class Customer {
 
     @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
     private List<Order> orderList = new ArrayList<>();
-
+    @OneToOne(mappedBy = "customer" )
+    private BuyTrolley buyTrolley;
 
 
 
@@ -62,8 +63,7 @@ public class Customer {
 
    //@OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
    //private List<ComplainSuggestion> complainSuggestionList = new ArrayList<>();
-   //@OneToOne(mappedBy = "customer" ,cascade = CascadeType.ALL)
-   //private BuyTrolley buyTrolley;
+
 
 
 }
