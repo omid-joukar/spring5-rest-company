@@ -32,15 +32,7 @@ public class CustomerDTO {
     private Long customerNumber;
 
     @NotBlank
-    private String addressLine;
-    @NotBlank
-    private String city;
-    @NotBlank
-    private String region;
-    @NotBlank
-    private String postalCode;
-    @NotBlank
-    private String country;
+    AddressDTO address;
     private BuyTrolleyDTO buyTrolley;
     private String customerUrl;
 

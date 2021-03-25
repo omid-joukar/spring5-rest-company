@@ -12,6 +12,6 @@ import lombok.Setter;
 public class BuyTrolleyDTO {
     private String buyTrolleyUrl;
     private Long productCount;
-    private CustomerDTO customer;
+    //private CustomerDTO customer;
 
 }

@@ -13,7 +13,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class OrderDTO {
 
-
     private String orderDate;
     private String orderTime;
     private String requiredDate;

@@ -21,18 +21,10 @@ public class DepartmentDTO {
     private String email;
     private String detail;
     @NotBlank
-    private String addressLine;
-    @NotBlank
-    private String city;
-    @NotBlank
-    private String region;
-    @NotBlank
-    private String postalCode;
-    @NotBlank
-    private String country;
+    AddressDTO address;
     @JsonProperty("depratment_url")
     private String DepartmetnUrl;
 
-    private ProductListDTO productList;
+   // private ProductListDTO productList;
 
 }

@@ -25,15 +25,7 @@ public class RecruitmentDTO {
     @Email
     private String email;
     @NotBlank
-    private String addressLine;
-    @NotBlank
-    private String city;
-    @NotBlank
-    private String country;
-    @NotBlank
-    private String region;
-    @Min(4)
-    private String postalCode;
+    AddressDTO address;
     @Min(6)
     @Max(8)
     private String homePhone;

@@ -29,15 +29,7 @@ public class EmployeeDTO {
     private String mobilePhone;
     private String detail;
     @NotBlank
-    private String addressLine;
-    @NotBlank
-    private String city;
-    @NotBlank
-    private String region;
-    @NotBlank
-    private String postalCode;
-    @NotBlank
-    private String country;
+    AddressDTO address;
     private String title;
     private String gender;
     private Byte[] photo;
