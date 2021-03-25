@@ -73,11 +73,11 @@ public class RecruitmnetServiceImpl implements RecruitmentService {
         recruitment.setLastName(recruitmentDTO.getLastName());
         recruitment.setEmail(recruitmentDTO.getEmail());
         Address address = new Address();
-        address.setPostalCode(recruitmentDTO.getPostalCode());
-        address.setRegion(recruitmentDTO.getRegion());
-        address.setCountry(recruitmentDTO.getCountry());
-        address.setCity(recruitmentDTO.getCity());
-        address.setAddressLine(recruitmentDTO.getAddressLine());
+        address.setPostalCode(recruitmentDTO.getAddress().getPostalCode());
+        address.setRegion(recruitmentDTO.getAddress().getRegion());
+        address.setCountry(recruitmentDTO.getAddress().getCountry());
+        address.setCity(recruitmentDTO.getAddress().getCity());
+        address.setAddressLine(recruitmentDTO.getAddress().getAddressLine());
         recruitment.setAddress(address);
         recruitment.setMobilePhone(recruitmentDTO.getMobilePhone());
         recruitment.setHomePhone(recruitmentDTO.getHomePhone());

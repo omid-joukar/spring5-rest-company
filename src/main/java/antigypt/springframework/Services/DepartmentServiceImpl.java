@@ -72,11 +72,11 @@ public class DepartmentServiceImpl implements DepartmentService {
         department.setDepartmentId(id);
         department.setPhoneNumber(departmentDTO.getPhoneNumber());
         department.setEmail(departmentDTO.getEmail());
-        department.getAddress().setAddressLine(departmentDTO.getAddressLine());
-        department.getAddress().setCity(departmentDTO.getCity());
-        department.getAddress().setRegion(departmentDTO.getRegion());
-        department.getAddress().setPostalCode(departmentDTO.getPostalCode());
-        department.getAddress().setPostalCode(departmentDTO.getCountry());
+        department.getAddress().setAddressLine(departmentDTO.getAddress().getAddressLine());
+        department.getAddress().setCity(departmentDTO.getAddress().getCity());
+        department.getAddress().setRegion(departmentDTO.getAddress().getRegion());
+        department.getAddress().setPostalCode(departmentDTO.getAddress().getPostalCode());
+        department.getAddress().setPostalCode(departmentDTO.getAddress().getCountry());
         DepartmentDTO updatedDepartmentDTO = departmentMapper.departmentToDepartmentDTO(departmentRepository.save(department));
         updatedDepartmentDTO.setDepartmetnUrl(DepartmentController.BASE_URL+"/"+department.getDepartmentId());
         return updatedDepartmentDTO;
