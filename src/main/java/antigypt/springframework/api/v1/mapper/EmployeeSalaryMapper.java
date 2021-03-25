@@ -11,28 +11,6 @@ import org.mapstruct.factory.Mappers;
 public interface EmployeeSalaryMapper {
     EmployeeSalaryMapper INSTANCE = Mappers.getMapper(EmployeeSalaryMapper.class);
 
-    @Mappings({@Mapping(
-                    source="employee",
-                    target = "employee"),
-            @Mapping(
-                    source = "employee.department.productList.products",
-                    target = "employee.department.productList"),
-            @Mapping(
-                    source ="employee.department" ,
-                    target ="employee.department")
-
-            })
     EmployeeSalary employeeSalaryDTOToEmployeeSalary(EmployeeSalaryDTO employeeSalaryDTO);
-
-    @Mappings({@Mapping(
-                    source= "employee",
-                    target = "employee"),
-            @Mapping(
-                    source = "employee.department.productList",
-                    target = "employee.department.productList.products"),
-            @Mapping(
-                    source ="employee.department" ,
-                    target ="employee.department")
-    })
     EmployeeSalaryDTO employeeSalaryToEmployeeSalaryDTO(EmployeeSalary employeeSalary);
 }

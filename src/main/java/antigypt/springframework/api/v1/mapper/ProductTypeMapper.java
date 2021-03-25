@@ -8,6 +8,7 @@ import org.mapstruct.factory.Mappers;
 @Mapper
 public interface ProductTypeMapper {
     ProductTypeMapper INSTANCE = Mappers.getMapper(ProductTypeMapper.class);
+
     ProductType ProductTypeDTOToProductType(ProductTypeDTO productTypeDTO);
     ProductTypeDTO ProductTypeToProductTypeDTO(ProductType productType);
 }
