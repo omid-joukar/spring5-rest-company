@@ -2,6 +2,7 @@ package antigypt.springframework.controllers.api.v1;
 
 import antigypt.springframework.Services.DepartmentService;
 import antigypt.springframework.Services.EmployeeService;
+import antigypt.springframework.api.v1.model.AddressDTO;
 import antigypt.springframework.api.v1.model.DepartmentDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -71,6 +72,7 @@ class DepartmentControllerTest {
 
     MockMvc mockMvc;
     private DepartmentDTO createdDepartmentDTO;
+    AddressDTO addressDTO;
 
     @BeforeEach
     void setUp() {
@@ -78,18 +80,20 @@ class DepartmentControllerTest {
         departmentController = new DepartmentController(departmentService,employeeService);
         mockMvc = MockMvcBuilders.standaloneSetup(departmentController)
                 .setControllerAdvice(new ExceptionHandlerController()).build();
-
+        addressDTO = new AddressDTO();
+        addressDTO.setAddressLine(ADDRESS_LINE);
+        addressDTO.setCity(CITY);
+        addressDTO.setCountry(COUNTRY);
+        addressDTO.setPostalCode(POSTAL_CODE);
+        addressDTO.setRegion(REGION);
 
         createdDepartmentDTO = new DepartmentDTO();
         createdDepartmentDTO.setEmail(EMAIL);
         createdDepartmentDTO.setDepartmetnUrl("/api/v1/departments/1");
-        createdDepartmentDTO.setRegion(REGION);
-        createdDepartmentDTO.setPostalCode(POSTAL_CODE);
+        createdDepartmentDTO.setAddress(addressDTO);
         createdDepartmentDTO.setPhoneNumber(PHONE_NUMBER);
         createdDepartmentDTO.setDetail(DETAIL);
-        createdDepartmentDTO.setCountry(COUNTRY);
-        createdDepartmentDTO.setCity(CITY);
-        createdDepartmentDTO.setAddressLine(ADDRESS_LINE);
+
 
     }
 
@@ -139,9 +143,7 @@ class DepartmentControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get(departmentController.BASE_URL+"/1"))
                 .andExpect(status().isOk())
                 .andExpect(view().name(departmentController.DEPARTMENTS_SHOW))
-                .andExpect(model().attribute("department",hasProperty("email",equalTo(EMAIL))))
-                .andExpect(model().attribute("department",hasProperty("country",equalTo(COUNTRY))))
-                .andExpect(model().attribute("department",hasProperty("postalCode",equalTo(POSTAL_CODE))));
+                .andExpect(model().attribute("department",hasProperty("email",equalTo(EMAIL))));
     }
 
     @Test

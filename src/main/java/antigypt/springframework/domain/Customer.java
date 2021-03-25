@@ -53,7 +53,8 @@ public class Customer {
 
     @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
     private List<Order> orderList = new ArrayList<>();
-    @OneToOne(mappedBy = "customer" )
+    @OneToOne
+    @JoinColumn(name = "buyTrolleyId")
     private BuyTrolley buyTrolley;
 
 

@@ -1,6 +1,7 @@
 package antigypt.springframework.api.v1.mapper;
 
 
+import antigypt.springframework.api.v1.model.AddressDTO;
 import antigypt.springframework.api.v1.model.DepartmentDTO;
 import antigypt.springframework.api.v1.model.EmployeeDTO;
 import antigypt.springframework.domain.Address;
@@ -52,6 +53,8 @@ class DepartmentMapperTest {
     Employee employee1;
     Employee employee2;
     EmployeeDTO employeeDTO;
+    AddressDTO addressDTO;
+    AddressDTO updatedAddressDTO;
 
     @BeforeEach
     void setUp() {
@@ -67,12 +70,26 @@ class DepartmentMapperTest {
         address.setPostalCode(POSTALCODE);
         address.setRegion(REGION);
 
+        addressDTO = new AddressDTO();
+        addressDTO.setAddressLine(ADDRESSLINE);
+        addressDTO.setCity(CITY);
+        addressDTO.setCountry(COUNTRY);
+        addressDTO.setPostalCode(POSTALCODE);
+        addressDTO.setRegion(REGION);
+
         updatedAddress = new Address();
         updatedAddress.setAddressLine(UPDATED_ADDRESS_LINE);
         updatedAddress.setCity(UPDATED_CITY);
         updatedAddress.setCountry(UPDATED_COUNTRY);
         updatedAddress.setPostalCode(UPDATED_POSTAL_CODE);
         updatedAddress.setRegion(UPDATED_REGION);
+
+        updatedAddressDTO = new AddressDTO();
+        updatedAddressDTO.setAddressLine(UPDATED_ADDRESS_LINE);
+        updatedAddressDTO.setCity(UPDATED_CITY);
+        updatedAddressDTO.setCountry(UPDATED_COUNTRY);
+        updatedAddressDTO.setPostalCode(UPDATED_POSTAL_CODE);
+        updatedAddressDTO.setRegion(UPDATED_REGION);
 
         employee1 = new Employee();
         employee1.setEmployeeId(1L);
@@ -94,11 +111,7 @@ class DepartmentMapperTest {
         employeeDTO.setEmail(EMAIL);
         employeeDTO.setHomePhone(HOME_PHONE);
         employeeDTO.setMobilePhone(MOBILE_PHONE);
-        employeeDTO.setAddressLine(ADDRESSLINE);
-        employeeDTO.setRegion(REGION);
-        employeeDTO.setCountry(COUNTRY);
-        employeeDTO.setCity(CITY);
-        employeeDTO.setPostalCode(POSTALCODE);
+        employeeDTO.setAddress(addressDTO);
 
 
         employee2 = new Employee();
@@ -129,24 +142,17 @@ class DepartmentMapperTest {
         updatedDepartment.getEmployeeList().addAll(Arrays.asList(employee1,employee2));
 
         sendedDepartmentDTO = new DepartmentDTO();
-        sendedDepartmentDTO.setAddressLine(ADDRESSLINE);
-        sendedDepartmentDTO.setCity(CITY);
-        sendedDepartmentDTO.setCountry(COUNTRY);
+        sendedDepartmentDTO.setAddress(addressDTO);
         sendedDepartmentDTO.setDetail(DETAIL);
         sendedDepartmentDTO.setEmail(EMAIL);
         sendedDepartmentDTO.setPhoneNumber(PHONENUMBER);
-        sendedDepartmentDTO.setPostalCode(POSTALCODE);
-        sendedDepartmentDTO.setRegion(REGION);
+
 
         sendedToUpdateDepartmentDTO = new DepartmentDTO();
-        sendedToUpdateDepartmentDTO.setAddressLine(UPDATED_ADDRESS_LINE);
-        sendedToUpdateDepartmentDTO.setCity(UPDATED_CITY);
-        sendedToUpdateDepartmentDTO.setCountry(UPDATED_COUNTRY);
+        sendedToUpdateDepartmentDTO.setAddress(updatedAddressDTO);
         sendedToUpdateDepartmentDTO.setDetail(DETAIL);
         sendedToUpdateDepartmentDTO.setEmail(UPDATED_EMAIL);
         sendedToUpdateDepartmentDTO.setPhoneNumber(UPDATED_PHONENUMBER);
-        sendedToUpdateDepartmentDTO.setPostalCode(UPDATED_POSTAL_CODE);
-        sendedToUpdateDepartmentDTO.setRegion(UPDATED_REGION);
         employee1.setDepartment(savedReturnedDepartment);
         employee2.setDepartment(savedReturnedDepartment);
 

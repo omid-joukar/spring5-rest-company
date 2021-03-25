@@ -1,6 +1,7 @@
 package antigypt.springframework.controllers.api.v1;
 
 import antigypt.springframework.Services.RecruitmentService;
+import antigypt.springframework.api.v1.model.AddressDTO;
 import antigypt.springframework.api.v1.model.RecruitmentDTO;
 
 import antigypt.springframework.domain.Recruitment;
@@ -75,7 +76,9 @@ class RecruitmentControllerTest {
     RecruitmentDTO returnedRecruitmentDTO;
     RecruitmentDTO recruitmentDTONotSame;
     RecruitmentDTO returnedUpdatedRecruitmentDTO;
-    
+    AddressDTO addressDTO;
+    AddressDTO updatedAddressDTO;
+
     @BeforeEach
     void setUp() throws IOException {
 
@@ -85,13 +88,25 @@ class RecruitmentControllerTest {
         for (byte b : SENDED_IMAGE.getBytes()){
             getBytes[i++] = b;
         }
-        
+        addressDTO = new AddressDTO();
+        addressDTO.setAddressLine(ADDRESS_LINE);
+        addressDTO.setCity(CITY);
+        addressDTO.setCountry(COUNTRY);
+        addressDTO.setPostalCode(POSTAL_CODE);
+        addressDTO.setRegion(REGION);
+
+        updatedAddressDTO = new AddressDTO();
+        updatedAddressDTO.setAddressLine(UPDATED_ADDRESS_LINE);
+        updatedAddressDTO.setCity(UPDATED_CITY);
+        updatedAddressDTO.setCountry(UPDATED_COUNTRY);
+        updatedAddressDTO.setPostalCode(UPDATED_POSTAL_CODE);
+        updatedAddressDTO.setRegion(UPDATED_REGION);
+
         returnedRecruitmentDTO = new RecruitmentDTO();
-        returnedRecruitmentDTO.setAddressLine(ADDRESS_LINE);
+        returnedRecruitmentDTO.setAddress(addressDTO);
         returnedRecruitmentDTO.setApplicationDate(APPLICATION_DATE);
         returnedRecruitmentDTO.setBirthDate(BIRTH_DATE);
-        returnedRecruitmentDTO.setCity(CITY);
-        returnedRecruitmentDTO.setCountry(COUNTRY);
+
         returnedRecruitmentDTO.setDesiredSalary(DESIRED_SALARY);
         returnedRecruitmentDTO.setCv(getBytes);
         returnedRecruitmentDTO.setDetail(DETAIL);
@@ -102,17 +117,13 @@ class RecruitmentControllerTest {
         returnedRecruitmentDTO.setLastName(LAST_NAME);
         returnedRecruitmentDTO.setMobilePhone(MOBILE_PHONE);
         returnedRecruitmentDTO.setPhoto(getBytes);
-        returnedRecruitmentDTO.setPostalCode(POSTAL_CODE);
-        returnedRecruitmentDTO.setRegion(REGION);
         returnedRecruitmentDTO.setTitle(TITLE);
         returnedRecruitmentDTO.setRecruitmentUrl(RecruitmentController.BASE_URL+"/1");
 
         returnedUpdatedRecruitmentDTO = new RecruitmentDTO();
-        returnedUpdatedRecruitmentDTO.setAddressLine(UPDATED_ADDRESS_LINE);
+        returnedUpdatedRecruitmentDTO.setAddress(updatedAddressDTO);
         returnedUpdatedRecruitmentDTO.setApplicationDate(APPLICATION_DATE);
         returnedUpdatedRecruitmentDTO.setBirthDate(BIRTH_DATE);
-        returnedUpdatedRecruitmentDTO.setCity(UPDATED_CITY);
-        returnedUpdatedRecruitmentDTO.setCountry(UPDATED_COUNTRY);
         returnedUpdatedRecruitmentDTO.setDesiredSalary(DESIRED_SALARY);
         returnedUpdatedRecruitmentDTO.setCv(getBytes);
         returnedUpdatedRecruitmentDTO.setDetail(DETAIL);
@@ -123,8 +134,6 @@ class RecruitmentControllerTest {
         returnedUpdatedRecruitmentDTO.setLastName(UPDATED_LAST_NAME);
         returnedUpdatedRecruitmentDTO.setMobilePhone(UPDATED_MOBILE_PHONE);
         returnedUpdatedRecruitmentDTO.setPhoto(getBytes);
-        returnedUpdatedRecruitmentDTO.setPostalCode(UPDATED_POSTAL_CODE);
-        returnedUpdatedRecruitmentDTO.setRegion(UPDATED_REGION);
         returnedUpdatedRecruitmentDTO.setTitle(TITLE);
         returnedUpdatedRecruitmentDTO.setRecruitmentUrl("/api/v1/recruitment/1");
 

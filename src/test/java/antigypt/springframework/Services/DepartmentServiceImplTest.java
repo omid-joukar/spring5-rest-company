@@ -2,6 +2,7 @@ package antigypt.springframework.Services;
 
 import antigypt.springframework.api.v1.mapper.DepartmentMapper;
 import antigypt.springframework.api.v1.mapper.EmployeeMapper;
+import antigypt.springframework.api.v1.model.AddressDTO;
 import antigypt.springframework.api.v1.model.DepartmentDTO;
 import antigypt.springframework.api.v1.model.EmployeeDTO;
 import antigypt.springframework.domain.Address;
@@ -68,6 +69,8 @@ class DepartmentServiceImplTest {
     Employee employee1;
     Employee employee2;
     EmployeeDTO employeeDTO;
+    AddressDTO addressDTO;
+    AddressDTO updatedAddressDTO;
 
     @BeforeEach
     void setUp() {
@@ -83,7 +86,20 @@ class DepartmentServiceImplTest {
         address.setPostalCode(POSTALCODE);
         address.setRegion(REGION);
 
+        addressDTO = new AddressDTO();
+        addressDTO.setAddressLine(ADDRESSLINE);
+        addressDTO.setCity(CITY);
+        addressDTO.setCountry(COUNTRY);
+        addressDTO.setPostalCode(POSTALCODE);
+        addressDTO.setRegion(REGION);
+
         updatedAddress = new Address();
+        updatedAddress.setAddressLine(UPDATED_ADDRESS_LINE);
+        updatedAddress.setCity(UPDATED_CITY);
+        updatedAddress.setCountry(UPDATED_COUNTRY);
+        updatedAddress.setPostalCode(UPDATED_POSTAL_CODE);
+        updatedAddress.setRegion(UPDATED_REGION);
+        updatedAddressDTO = new AddressDTO();
         updatedAddress.setAddressLine(UPDATED_ADDRESS_LINE);
         updatedAddress.setCity(UPDATED_CITY);
         updatedAddress.setCountry(UPDATED_COUNTRY);
@@ -110,11 +126,7 @@ class DepartmentServiceImplTest {
         employeeDTO.setEmail(EMAIL);
         employeeDTO.setHomePhone(HOME_PHONE);
         employeeDTO.setMobilePhone(MOBILE_PHONE);
-        employeeDTO.setAddressLine(ADDRESSLINE);
-        employeeDTO.setRegion(REGION);
-        employeeDTO.setCountry(COUNTRY);
-        employeeDTO.setCity(CITY);
-        employeeDTO.setPostalCode(POSTALCODE);
+        employeeDTO.setAddress(addressDTO);
 
 
         employee2 = new Employee();
@@ -145,25 +157,18 @@ class DepartmentServiceImplTest {
         updatedDepartment.getEmployeeList().addAll(Arrays.asList(employee1,employee2));
 
         sendedDepartmentDTO = new DepartmentDTO();
-        sendedDepartmentDTO.setAddressLine(ADDRESSLINE);
-        sendedDepartmentDTO.setCity(CITY);
-        sendedDepartmentDTO.setCountry(COUNTRY);
+        sendedDepartmentDTO.setAddress(addressDTO);
         sendedDepartmentDTO.setDetail(DETAIL);
         sendedDepartmentDTO.setEmail(EMAIL);
         sendedDepartmentDTO.setPhoneNumber(PHONENUMBER);
-        sendedDepartmentDTO.setPostalCode(POSTALCODE);
-        sendedDepartmentDTO.setRegion(REGION);
+
 
 
         sendedToUpdateDepartmentDTO = new DepartmentDTO();
-        sendedToUpdateDepartmentDTO.setAddressLine(UPDATED_ADDRESS_LINE);
-        sendedToUpdateDepartmentDTO.setCity(UPDATED_CITY);
-        sendedToUpdateDepartmentDTO.setCountry(UPDATED_COUNTRY);
+        sendedToUpdateDepartmentDTO.setAddress(updatedAddressDTO);
         sendedToUpdateDepartmentDTO.setDetail(DETAIL);
         sendedToUpdateDepartmentDTO.setEmail(UPDATED_EMAIL);
         sendedToUpdateDepartmentDTO.setPhoneNumber(UPDATED_PHONENUMBER);
-        sendedToUpdateDepartmentDTO.setPostalCode(UPDATED_POSTAL_CODE);
-        sendedToUpdateDepartmentDTO.setRegion(UPDATED_REGION);
         employee1.setDepartment(savedReturnedDepartment);
         employee2.setDepartment(savedReturnedDepartment);
 
@@ -178,7 +183,7 @@ class DepartmentServiceImplTest {
         DepartmentDTO savedReturnedDepartmentDTO = departmentService.createNewDepartment(sendedDepartmentDTO);
         assertEquals(savedReturnedDepartmentDTO.getEmail(),EMAIL);
         assertEquals(savedReturnedDepartmentDTO.getPhoneNumber(),PHONENUMBER);
-        assertEquals(savedReturnedDepartmentDTO.getAddressLine(),ADDRESSLINE);
+        assertEquals(savedReturnedDepartmentDTO.getAddress().getAddressLine(),ADDRESSLINE);
 
     }
 
@@ -188,7 +193,7 @@ class DepartmentServiceImplTest {
         DepartmentDTO foundedDepartmentDTO = departmentService.findDepartmentById(1L);
         assertEquals(foundedDepartmentDTO.getEmail(),EMAIL);
         assertEquals(foundedDepartmentDTO.getPhoneNumber(),PHONENUMBER);
-        assertEquals(foundedDepartmentDTO.getAddressLine(),ADDRESSLINE);
+        assertEquals(foundedDepartmentDTO.getAddress().getAddressLine(),ADDRESSLINE);
 
 
 
@@ -221,9 +226,9 @@ class DepartmentServiceImplTest {
         DepartmentDTO updatedDepartmentDTO  = departmentService.updateDepartmentByDTO(1L,sendedToUpdateDepartmentDTO);
         assertEquals(updatedDepartmentDTO.getEmail(),UPDATED_EMAIL);
         assertEquals(updatedDepartmentDTO.getPhoneNumber(),UPDATED_PHONENUMBER);
-        assertEquals(updatedDepartmentDTO.getCity(),UPDATED_CITY);
-        assertEquals(updatedDepartmentDTO.getRegion(),UPDATED_REGION);
-        assertEquals(updatedDepartmentDTO.getCountry(),UPDATED_COUNTRY);
+        assertEquals(updatedDepartmentDTO.getAddress().getCity(),UPDATED_CITY);
+        assertEquals(updatedDepartmentDTO.getAddress().getRegion(),UPDATED_REGION);
+        assertEquals(updatedDepartmentDTO.getAddress().getCountry(),UPDATED_COUNTRY);
 
 
 

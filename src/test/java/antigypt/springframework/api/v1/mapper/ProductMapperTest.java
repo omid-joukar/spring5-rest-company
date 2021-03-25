@@ -1,5 +1,6 @@
 package antigypt.springframework.api.v1.mapper;
 
+import antigypt.springframework.api.v1.model.AddressDTO;
 import antigypt.springframework.api.v1.model.DepartmentDTO;
 import antigypt.springframework.api.v1.model.ProductDTO;
 import antigypt.springframework.api.v1.model.ProductTypeDTO;
@@ -50,6 +51,8 @@ class ProductMapperTest {
     Byte[] getBytes;
     ProductType productType;
     ProductTypeDTO productTypeDTO;
+    AddressDTO addressDTO;
+
     @SneakyThrows
     @BeforeEach
     void setUp() {
@@ -68,6 +71,12 @@ class ProductMapperTest {
         address.setCountry(COUNTRY);
         address.setPostalCode(POSTALCODE);
         address.setRegion(REGION);
+        addressDTO = new AddressDTO();
+        addressDTO.setAddressLine(ADDRESSLINE);
+        addressDTO.setCity(CITY);
+        addressDTO.setCountry(COUNTRY);
+        addressDTO.setPostalCode(POSTALCODE);
+        addressDTO.setRegion(REGION);
 
         savedReturnedDepartment = new Department();
         savedReturnedDepartment.setDepartmentId(1L);
@@ -78,14 +87,11 @@ class ProductMapperTest {
         savedReturnedDepartment.setEmployeeList(new ArrayList<>());
 
         sendedDepartmentDTO = new DepartmentDTO();
-        sendedDepartmentDTO.setAddressLine(ADDRESSLINE);
-        sendedDepartmentDTO.setCity(CITY);
-        sendedDepartmentDTO.setCountry(COUNTRY);
+        sendedDepartmentDTO.setAddress(addressDTO);
         sendedDepartmentDTO.setDetail(DETAIL);
         sendedDepartmentDTO.setEmail(EMAIL);
         sendedDepartmentDTO.setPhoneNumber(PHONENUMBER);
-        sendedDepartmentDTO.setPostalCode(POSTALCODE);
-        sendedDepartmentDTO.setRegion(REGION);
+
 
         productType = new ProductType();
         productType.setDetail(DETAIL);

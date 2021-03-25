@@ -1,6 +1,7 @@
 package antigypt.springframework.Services;
 
 import antigypt.springframework.api.v1.mapper.RecruitmentMapper;
+import antigypt.springframework.api.v1.model.AddressDTO;
 import antigypt.springframework.api.v1.model.RecruitmentDTO;
 import antigypt.springframework.controllers.api.v1.RecruitmentController;
 import antigypt.springframework.domain.Address;
@@ -66,7 +67,9 @@ class RecruitmnetServiceImplTest {
     Byte[] getBytes;
 
     Address address;
+    AddressDTO addressDTO;
     Address wantToUpdateAddress;
+    AddressDTO wantToUpdateAddressDTO;
     Recruitment savedRecruitment;
     RecruitmentDTO returnedRecruitmentDTO;
     RecruitmentDTO returnedUpdatedRecruitmentDTO;
@@ -91,12 +94,26 @@ class RecruitmnetServiceImplTest {
         address.setPostalCode(POSTAL_CODE);
         address.setRegion(REGION);
 
+        addressDTO = new AddressDTO();
+        addressDTO.setAddressLine(ADDRESS_LINE);
+        addressDTO.setCity(CITY);
+        addressDTO.setCountry(COUNTRY);
+        addressDTO.setPostalCode(POSTAL_CODE);
+        addressDTO.setRegion(REGION);
+
         wantToUpdateAddress = new Address();
         wantToUpdateAddress.setAddressLine(UPDATED_ADDRESS_LINE);
         wantToUpdateAddress.setCity(UPDATED_CITY);
         wantToUpdateAddress.setCountry(UPDATED_COUNTRY);
         wantToUpdateAddress.setPostalCode(UPDATED_POSTAL_CODE);
         wantToUpdateAddress.setRegion(UPDATED_REGION);
+
+        wantToUpdateAddressDTO = new AddressDTO();
+        wantToUpdateAddressDTO.setAddressLine(UPDATED_ADDRESS_LINE);
+        wantToUpdateAddressDTO.setCity(UPDATED_CITY);
+        wantToUpdateAddressDTO.setCountry(UPDATED_COUNTRY);
+        wantToUpdateAddressDTO.setPostalCode(UPDATED_POSTAL_CODE);
+        wantToUpdateAddressDTO.setRegion(UPDATED_REGION);
 
         savedRecruitment = new Recruitment();
         savedRecruitment.setRecruitmentId(1L);
@@ -151,11 +168,10 @@ class RecruitmnetServiceImplTest {
         wantToUpdateRecruitment.setTitle(Title.ING);
 
         returnedRecruitmentDTO  = new RecruitmentDTO();
-        returnedRecruitmentDTO.setAddressLine(ADDRESS_LINE);
+        returnedRecruitmentDTO.setAddress(addressDTO);
         returnedRecruitmentDTO.setApplicationDate(APPLICATION_DATE);
         returnedRecruitmentDTO.setBirthDate(BIRTH_DATE);
-        returnedRecruitmentDTO.setCity(CITY);
-        returnedRecruitmentDTO.setCountry(COUNTRY);
+
         returnedRecruitmentDTO.setDesiredSalary(DESIRED_SALARY);
         returnedRecruitmentDTO.setCv(getBytes);
         returnedRecruitmentDTO.setDetail(DETAIL);
@@ -166,17 +182,14 @@ class RecruitmnetServiceImplTest {
         returnedRecruitmentDTO.setLastName(LAST_NAME);
         returnedRecruitmentDTO.setMobilePhone(MOBILE_PHONE);
         returnedRecruitmentDTO.setPhoto(getBytes);
-        returnedRecruitmentDTO.setPostalCode(POSTAL_CODE);
-        returnedRecruitmentDTO.setRegion(REGION);
         returnedRecruitmentDTO.setTitle(TITLE);
 
 
         returnedUpdatedRecruitmentDTO = new RecruitmentDTO();
-        returnedUpdatedRecruitmentDTO.setAddressLine(UPDATED_ADDRESS_LINE);
+        returnedUpdatedRecruitmentDTO.setAddress(wantToUpdateAddressDTO);
         returnedUpdatedRecruitmentDTO.setApplicationDate(APPLICATION_DATE);
         returnedUpdatedRecruitmentDTO.setBirthDate(BIRTH_DATE);
-        returnedUpdatedRecruitmentDTO.setCity(UPDATED_CITY);
-        returnedUpdatedRecruitmentDTO.setCountry(UPDATED_COUNTRY);
+
         returnedUpdatedRecruitmentDTO.setDesiredSalary(DESIRED_SALARY);
         returnedUpdatedRecruitmentDTO.setCv(getBytes);
         returnedUpdatedRecruitmentDTO.setDetail(DETAIL);
@@ -187,8 +200,6 @@ class RecruitmnetServiceImplTest {
         returnedUpdatedRecruitmentDTO.setLastName(UPDATED_LAST_NAME);
         returnedUpdatedRecruitmentDTO.setMobilePhone(UPDATED_MOBILE_PHONE);
         returnedUpdatedRecruitmentDTO.setPhoto(getBytes);
-        returnedUpdatedRecruitmentDTO.setPostalCode(UPDATED_POSTAL_CODE);
-        returnedUpdatedRecruitmentDTO.setRegion(UPDATED_REGION);
         returnedUpdatedRecruitmentDTO.setTitle(TITLE);
     }
 
@@ -278,11 +289,11 @@ class RecruitmnetServiceImplTest {
         when(recruitmentRepository.save(any())).thenReturn(wantToUpdateRecruitment);
         RecruitmentDTO updatedRecruitmentDTO = recruitmentService.updateRecruitmnetByDTO(1L,returnedUpdatedRecruitmentDTO);
         assertNotNull(updatedRecruitmentDTO);
-        assertEquals(UPDATED_ADDRESS_LINE,updatedRecruitmentDTO.getAddressLine());
-        assertEquals(UPDATED_CITY,updatedRecruitmentDTO.getCity());
-        assertEquals(UPDATED_COUNTRY,updatedRecruitmentDTO.getCountry());
-        assertEquals(UPDATED_REGION,updatedRecruitmentDTO.getRegion());
-        assertEquals(UPDATED_POSTAL_CODE,updatedRecruitmentDTO.getPostalCode());
+        assertEquals(UPDATED_ADDRESS_LINE,updatedRecruitmentDTO.getAddress().getAddressLine());
+        assertEquals(UPDATED_CITY,updatedRecruitmentDTO.getAddress().getCity());
+        assertEquals(UPDATED_COUNTRY,updatedRecruitmentDTO.getAddress().getCountry());
+        assertEquals(UPDATED_REGION,updatedRecruitmentDTO.getAddress().getRegion());
+        assertEquals(UPDATED_POSTAL_CODE,updatedRecruitmentDTO.getAddress().getPostalCode());
         assertEquals(UPDATED_FIRST_NAME,updatedRecruitmentDTO.getFirstName());
         assertEquals(UPDATED_LAST_NAME,updatedRecruitmentDTO.getLastName());
         assertEquals(UPDATED_EMAIL,updatedRecruitmentDTO.getEmail());

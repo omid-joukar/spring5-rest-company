@@ -1,6 +1,7 @@
 package antigypt.springframework.Services;
 
 import antigypt.springframework.api.v1.mapper.ProductMapper;
+import antigypt.springframework.api.v1.model.AddressDTO;
 import antigypt.springframework.api.v1.model.DepartmentDTO;
 import antigypt.springframework.api.v1.model.ProductDTO;
 import antigypt.springframework.api.v1.model.ProductTypeDTO;
@@ -65,6 +66,7 @@ class ProductServiceImplTest {
     Byte[] getImageBytes;
     Byte[] getSerialBytes;
     Address address;
+    AddressDTO addressDTO;
 
     @BeforeEach
     void setUp() {
@@ -103,20 +105,23 @@ class ProductServiceImplTest {
         department2.setPhoneNumber(PHONENUMBER);
         department2.setDetail(DETAIL);
         department2.setAddress(address);
+        addressDTO = new AddressDTO();
+        addressDTO.setAddressLine(ADDRESSLINE);
+        addressDTO.setCity(CITY);
+        addressDTO.setCountry(COUNTRY);
+        addressDTO.setPostalCode(POSTALCODE);
+        addressDTO.setRegion(REGION);
 
 
 
 
 
         departmentDTO = new DepartmentDTO();
-        departmentDTO.setAddressLine(ADDRESSLINE);
-        departmentDTO.setCity(CITY);
-        departmentDTO.setCountry(COUNTRY);
+        departmentDTO.setAddress(addressDTO);
         departmentDTO.setDetail(DETAIL);
         departmentDTO.setEmail(EMAIL);
         departmentDTO.setPhoneNumber(PHONENUMBER);
-        departmentDTO.setPostalCode(POSTALCODE);
-        departmentDTO.setRegion(REGION);
+
 
         productType = new ProductType();
         productType.setProductTypeName(ProductTypeName.ORANGE);
