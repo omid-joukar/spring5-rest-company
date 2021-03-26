@@ -80,7 +80,7 @@ class PaymentMapperTest {
     EmployeeDTO employeeDTO;
     Payment payment;
     PaymentDTO paymentDTO;
-    Order order;
+    Orders orders;
     OrderDTO orderDTO;
     Customer customer;
     CustomerDTO customerDTO;
@@ -224,17 +224,17 @@ class PaymentMapperTest {
         productDTO.setProductType(productTypeDTO);
         productDTO.setProductUrl("/api/v1/products/1");
 
-        order = new Order();
-        order.setOrderId(ORDER_ID);
-        order.setComments(COMMENTS);
-        order.setDeliverEmployee(employee1);
-        order.setDepartment(savedReturnedDepartment);
-        order.setOrderDate(ORDER_DATE);
-        order.setOrderStatus(ORDER_STATUS);
-        order.setOrderTime(ORDER_TIME);
-        order.setRequiredDate(REQUIRED_DATE);
-        order.setShippedDate(SHIPPED_DATE);
-        order.setShippedTime(SHIPPED_TIME);
+        orders = new Orders();
+        orders.setOrderId(ORDER_ID);
+        orders.setComments(COMMENTS);
+        orders.setDeliverEmployee(employee1);
+        orders.setDepartment(savedReturnedDepartment);
+        orders.setOrderDate(ORDER_DATE);
+        orders.setOrderStatus(ORDER_STATUS);
+        orders.setOrderTime(ORDER_TIME);
+        orders.setRequiredDate(REQUIRED_DATE);
+        orders.setShippedDate(SHIPPED_DATE);
+        orders.setShippedTime(SHIPPED_TIME);
 
         buyTrolley = new BuyTrolley();
         buyTrolley.setBuyTrolleyId(BUYTROLLEY_ID);
@@ -253,9 +253,9 @@ class PaymentMapperTest {
         customer.setHomePhone(HOME_PHONE);
         customer.setLastName(LAST_NAME);
         customer.setMobilePhone(MOBILE_PHONE);
-        customer.getOrderList().add(order);
+        customer.getOrdersList().add(orders);
         buyTrolley.setCustomer(customer);
-        order.setCustomer(customer);
+        orders.setCustomer(customer);
 
 
 
@@ -264,10 +264,10 @@ class PaymentMapperTest {
         payment.setPaymentDate(PAYMENT_DATE);
         payment.setPaymentTime(PAYMENT_TIME);
         payment.setRebate(REBATE);
-        payment.setPaymentsId(PAYMENT_ID);
-        payment.setOrder(order);
+        payment.setPaymentId(PAYMENT_ID);
+        payment.setOrders(orders);
         payment.setPaymentType(PAYMENT_TYPE);
-        order.setPayment(payment);
+        orders.setPayment(payment);
         buyTrolleyDTO = new BuyTrolleyDTO();
         buyTrolleyDTO.setBuyTrolleyUrl("/api/v1/buyTrolleys/1");
         buyTrolleyDTO.setProductCount(PRODUCT_COUNT);
@@ -312,7 +312,7 @@ class PaymentMapperTest {
         paymentDTO.setPaymentUrl("/api/v1/payments/1");
         paymentDTO.setOrder(orderDTO);
         paymentDTO.setPaymentType(PaymentType.CREDIT_CARD);
-        order.setPayment(payment);
+        orders.setPayment(payment);
     }
 
     @Test

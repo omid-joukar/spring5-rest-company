@@ -43,14 +43,15 @@ public class Department {
     @ManyToMany(targetEntity = Product.class , mappedBy = "departmentList")
     List<Product> productList = new ArrayList<>();
 
+    @OneToMany(mappedBy = "department",cascade = CascadeType.ALL)
+    private List<Orders> ordersList = new ArrayList<>();
 
     //@OneToOne(mappedBy = "department" , cascade = CascadeType.ALL)
     //private DepartmentCorruptProduct departmentCorruptProducts;
     //@OneToOne(mappedBy = "department" , cascade = CascadeType.ALL)
     //private DepartmentNecessaryProduct departmentNecessaryProducts;
     //private List<Shift> shiftList = new ArrayList<>();
-    //@OneToMany(mappedBy = "department",cascade = CascadeType.ALL)
-    //private List<Order> orderList = new ArrayList<>();
+
 
 
 }

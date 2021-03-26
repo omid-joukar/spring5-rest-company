@@ -3,7 +3,7 @@ package antigypt.springframework.api.v1.mapper;
 
 import antigypt.springframework.api.v1.model.OrderDTO;
 
-import antigypt.springframework.domain.Order;
+import antigypt.springframework.domain.Orders;
 import org.mapstruct.Mapper;
 
 import org.mapstruct.factory.Mappers;
@@ -12,8 +12,8 @@ import org.mapstruct.factory.Mappers;
 public interface OrderMapper {
     OrderMapper INSTANCE = Mappers.getMapper(OrderMapper.class);
 
-    Order orderDTOToOrder(OrderDTO orderDTO);
-    OrderDTO orderToOrderDTO(Order order);
+    Orders orderDTOToOrder(OrderDTO orderDTO);
+    OrderDTO orderToOrderDTO(Orders orders);
 
 
 }

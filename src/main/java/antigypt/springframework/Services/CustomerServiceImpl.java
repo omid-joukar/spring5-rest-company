@@ -128,7 +128,7 @@ public class CustomerServiceImpl implements CustomerService {
             throw new ResourceNotFoundException("id is invalid : " + customerId);
         }
         Customer foundedCustomer = customerOptional.get();
-        return foundedCustomer.getOrderList()
+        return foundedCustomer.getOrdersList()
                 .stream()
                 .map(order -> {
                     OrderDTO returnedDTO = orderMapper.orderToOrderDTO(order);
@@ -145,7 +145,7 @@ public class CustomerServiceImpl implements CustomerService {
             throw new ResourceNotFoundException("id is invalid : " + customerId);
         }
         Customer foundedCustomer = customerOptional.get();
-        return foundedCustomer.getOrderList()
+        return foundedCustomer.getOrdersList()
                 .stream()
                 .filter(order -> order.getOrderId().equals(orderId))
                 .findFirst()

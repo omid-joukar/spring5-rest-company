@@ -1,6 +1,5 @@
 package antigypt.springframework.api.v1.model;
 
-import antigypt.springframework.domain.Order;
 import antigypt.springframework.domain.PaymentType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

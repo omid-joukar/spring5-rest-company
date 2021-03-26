@@ -13,7 +13,7 @@ import java.time.LocalTime;
  * Created by omid on 11/18/2020.
  */
 @Entity
-@Table(name = "payment")
+@Table(name = "Payment")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,7 +21,7 @@ import java.time.LocalTime;
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long paymentsId;
+    private Long paymentId;
     @Column(name = "amount")
     private Double amount;
     @Column(name = "paymentDate")
@@ -34,9 +34,8 @@ public class Payment {
     @Enumerated
     private PaymentType paymentType;
 
-    @OneToOne(mappedBy = "payment")
-    @JoinColumn(name = "orderId")
-    private Order order;
+    @OneToOne(mappedBy = "payment",cascade = CascadeType.ALL)
+    private Orders orders;
 
 
 }

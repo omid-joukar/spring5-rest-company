@@ -10,26 +10,31 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
-@Table(name="Order")
+@Table(name="Orders")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Order {
+public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderId;
+
     @Column(name = "orderDate")
     private LocalDate orderDate;
+
     @Column(name = "orderTime")
     private LocalTime orderTime;
 
     @Column(name = "requiredDate")
     private LocalDate requiredDate;
+
     @Column(name = "shippedDate")
     private LocalDate shippedDate;
+
     @Column(name = "shippedTime")
     private LocalTime shippedTime;
+
     @Column(name = "comments")
     private String comments;
 
@@ -42,13 +47,17 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "departmentId")
     private Department department;
+
     @ManyToOne
-    @JoinColumn(name = "deliverEmployeeId")
+    @JoinColumn(name = "employeeId")
     private Employee deliverEmployee;
+
     @ManyToOne
     @JoinColumn(name ="customerId")
     private Customer customer;
-    @OneToOne(cascade = CascadeType.ALL)
+
+    @OneToOne
+    @JoinColumn(name = "paymentId")
     private Payment payment;
 
    // @OneToOne(cascade = CascadeType.ALL)

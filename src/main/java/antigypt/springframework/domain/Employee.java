@@ -17,7 +17,7 @@ import java.util.List;
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long employeeId;
 
     @Column(name = "firstName")
@@ -75,6 +75,8 @@ public class Employee {
     @JoinColumn(name = "vehicleId")
     private Vehicle vehicle;
 
+    @OneToMany(mappedBy = "deliverEmployee",cascade = CascadeType.ALL)
+    List<Orders> ordersList = new ArrayList<>();
    // @OneToMany(mappedBy = "employee",cascade = CascadeType.ALL )
    // private List<EmployeeShift> employeeShiftList = new ArrayList<>();
    // @OneToMany(mappedBy = "employee" , cascade = CascadeType.ALL)
