@@ -1,0 +1,23 @@
+{
+  
+  "slides": [
+    {
+      "id": "1",
+      "cover": "groceries.jpg",
+      "topic": "De sss ss ad",
+      "title": "Top Score of The Week"
+    },
+    {
+      "id": "2",
+      "cover": "market.jpg",
+      "topic": "De sss ss ad",
+      "title": "Top Score of The Week"
+    },
+    {
+      "id": "3",
+      "cover": "vegtables.jpg",
+      "topic": "De sss ss ad",
+      "title": "Top Score of The Week"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+export const URL_SLIDES = "http://localhost:3004/slides";
