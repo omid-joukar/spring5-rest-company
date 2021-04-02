@@ -1,8 +1,133 @@
-header{
-    background: silver;
-    color:rgb(104, 102, 102);
-    font-size: 30px;
-    text-align: center;
-    padding: 20px auto;
-    font-family: 'Oi', cursive;
+
+header .container{
+    background: #cecdcd;
+    width: auto;
+    font-family: 'Righteous', cursive;
+    font-size:30px;
+    border-bottom: 10px solid #FFCE29;
+    }
+
+
+    
+.web-shop{
+    background-color:#FA6515;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 20px;
+    margin-left: 10px;
+    box-shadow: 1px 3px 3px rgb(94, 92, 92);
+    font-family: 'Roboto',cursive;
+    position: relative;   
+    text-align: center; 
+    box-sizing: border-box;
+    background-position: center center;
 }
+.item_slider{
+    background-size: cover;
+    height: 460px;
+}
+
+
+.web-shop:hover{
+    color: #707070;
+}
+   
+.login{
+    font-family: 'Roboto', cursive;
+    padding: 8.2px;
+    padding-right: 10px;
+    margin-left: -15px;
+    font-size: 20px;
+    border:1px solid white;
+    border-left: none;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    color: white;
+    
+}
+
+.login-icon .fas{
+    color: white;
+    font-size: 20px;
+    border:1px solid white;
+    padding: 10px;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    border-right:none;
+    margin-right: -24px;
+}
+
+/***************************************************************************************
+***************************************Footer******************************************/
+footer .container{
+    background: #cecdcd;
+}
+
+.header-row{
+    font-weight: 600;
+    font-family: 'Roboto',cursive;
+}
+
+footer .link-item{
+    color: rgb(29, 28, 28);
+}
+footer .link-item:hover{
+    color: #1e8334;
+    transition: all .3s;
+}
+.subscribe-container{
+    margin-top: 40px;
+}
+.subscribe-form .email-input{
+    margin-top: 2px;
+    padding: 9.9px;
+    padding-left:80px;
+    
+}
+.subscribe-form{
+    top: 20px;
+}
+.subscribe-form .submit-btn{
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    background-color: #ffb31b;
+    padding: 12px;
+    font-family: 'Roboto',cursive;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 1px 2px 1px rgb(168, 110, 1);
+}
+.subscribe-form .submit-btn:hover{
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    background-color:#ffaa00;
+    padding: 12px;
+    font-family: 'Roboto',cursive;
+    box-shadow: 1px 2px 1px rgb(168, 110, 1);
+}
+
+    
+.ali{
+    color:#FA6515;
+    color:   #B3FA05;
+    color: #EB3B4D;
+    color: #FFCE29;
+    color: #67E278;
+    color: #ABABAB;
+    color: #4D8D12;
+    color:#80B92E;
+    color:#FAE9DF;
+    color:#F66707;
+    color:#E7F1F3;
+    color:#BEEFF3;
+    color:#F31B2A;
+    color:#EC2336;
+    color:#FBD3DC;
+    color:#05CA72;
+    color:#FFC658;
+    color:#055DBF;
+    
+font-family: 'Roboto', sans-serif;
+}
+/***************************************************************************************
+***************************************Slider******************************************/
