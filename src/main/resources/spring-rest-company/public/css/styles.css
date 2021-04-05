@@ -81,27 +81,26 @@ footer .link-item:hover{
 .subscribe-form .email-input{
     margin-top: 2px;
     padding: 9.9px;
-    padding-left:80px;
+    width: 280px;
     
 }
-.subscribe-form{
-    top: 20px;
-}
+
 .subscribe-form .submit-btn{
     border-bottom-left-radius: 0px;
     border-top-left-radius: 0px;
     background-color: #ffb31b;
-    padding: 12px;
+    padding: 10px;
     font-family: 'Roboto',cursive;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
     box-shadow: 1px 2px 1px rgb(168, 110, 1);
+    margin-bottom: 5px;
 }
 .subscribe-form .submit-btn:hover{
     border-bottom-left-radius: 0px;
     border-top-left-radius: 0px;
     background-color:#ffaa00;
-    padding: 12px;
+    padding: 10px;
     font-family: 'Roboto',cursive;
     box-shadow: 1px 2px 1px rgb(168, 110, 1);
 }
@@ -131,3 +130,9 @@ font-family: 'Roboto', sans-serif;
 }
 /***************************************************************************************
 ***************************************Slider******************************************/
+.success_show{
+    display: block;
+    }
+.success{
+    display: none;
+}
