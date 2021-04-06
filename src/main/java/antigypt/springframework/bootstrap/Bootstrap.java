@@ -1,26 +1,25 @@
 package antigypt.springframework.bootstrap;
 
-import antigypt.springframework.domain.Address;
-import antigypt.springframework.domain.Gender;
-import antigypt.springframework.domain.Recruitment;
-import antigypt.springframework.domain.Title;
+import antigypt.springframework.domain.*;
 import antigypt.springframework.repositories.RecruitmentRepository;
-
+import antigypt.springframework.repositories.SlideRepository;
 import lombok.SneakyThrows;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
-
 import java.io.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
     private final RecruitmentRepository recruitmentRepository;
-
-    public Bootstrap(RecruitmentRepository recruitmentRepository) {
+    private final SlideRepository slideRepository;
+    public Bootstrap(RecruitmentRepository recruitmentRepository, SlideRepository slideRepository) {
         this.recruitmentRepository = recruitmentRepository;
+        this.slideRepository = slideRepository;
     }
 
 
@@ -29,7 +28,31 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
         recruitmentRepository.save(getRecruitment());
         System.out.println("Recruitment added");
+
+        slideRepository.saveAll(getListSlides());
+        System.out.println("Slides added");
     }
+
+    public List<Slide> getListSlides() {
+        Slide slide1 = new Slide();
+        slide1.setTopic("De sss ss ad");
+        slide1.setTitle("Top Score of The Week");
+        slide1.setCover("groceries.jpg");
+        Slide slide2 = new Slide();
+        slide2.setTopic("De sss ss ad");
+        slide2.setTitle("Top Score of The Week");
+        slide2.setCover("market.jpg");
+        Slide slide3 = new Slide();
+        slide3.setTopic("De sss ss ad");
+        slide3.setTitle("Top Score of The Week");
+        slide3.setCover("vegtables.jpg");
+        List<Slide> slideList = new ArrayList<>();
+        slideList.add(slide1);
+        slideList.add(slide2);
+        slideList.add(slide3);
+        return slideList;
+    }
+
     @SneakyThrows
     public ByteArrayOutputStream convertInputStreamToByteArrayOutputStream(InputStream source){
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
