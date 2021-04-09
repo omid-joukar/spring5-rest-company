@@ -35,16 +35,16 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
     public List<Slide> getListSlides() {
         Slide slide1 = new Slide();
-        slide1.setTopic("De sss ss ad");
-        slide1.setTitle("Top Score of The Week");
+        slide1.setTopic("GROCERIES");
+        slide1.setTitle("TOP SCORER OF THE WEEK");
         slide1.setCover("groceries.jpg");
         Slide slide2 = new Slide();
-        slide2.setTopic("De sss ss ad");
-        slide2.setTitle("Top Score of The Week");
+        slide2.setTopic("MARKET");
+        slide2.setTitle("TOP SCORER OF THE WEEK");
         slide2.setCover("market.jpg");
         Slide slide3 = new Slide();
-        slide3.setTopic("De sss ss ad");
-        slide3.setTitle("Top Score of The Week");
+        slide3.setTopic("VEGETABLES");
+        slide3.setTitle("TOP SCORER OF THE WEEK");
         slide3.setCover("vegtables.jpg");
         List<Slide> slideList = new ArrayList<>();
         slideList.add(slide1);

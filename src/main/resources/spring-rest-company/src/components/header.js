@@ -54,7 +54,8 @@ render(){
     return(
         <>
             <header>
-                <div className="container row col-sm-12 py-4">
+                <div className="container  col-sm-12 py-4">
+                 <div className="row col-sm-12 ">
                     <Link to="/" className="logo col-sm-8 text-white text-decoration-none">
                     antigypt<span className="text-success">market</span>
                     </Link>
@@ -95,7 +96,7 @@ render(){
                         </Link> 
                      </CSSTransition>
                 </nav>
-        
+            </div>
             </div>
         </header>
     </>

@@ -1,4 +1,5 @@
-
+/***************************************************************************************
+***************************************Header******************************************/
 header .container{
     background: #cecdcd;
     width: auto;
@@ -7,7 +8,10 @@ header .container{
     border-bottom: 10px solid #FFCE29;
     }
 
-
+    .header-row{
+        font-weight: 600;
+        font-family: 'Roboto',cursive;
+    }
     
 .web-shop{
     background-color:#FA6515;
@@ -22,10 +26,7 @@ header .container{
     box-sizing: border-box;
     background-position: center center;
 }
-.item_slider{
-    background-size: cover;
-    height: 460px;
-}
+
 
 
 .web-shop:hover{
@@ -57,20 +58,86 @@ header .container{
     margin-right: -24px;
 }
 
+
+/***************************************************************************************
+***************************************Slider******************************************/
+
+.slide-container .item_slider{
+    background-size: cover;
+    height: 460px;
+    position: relative;
+}
+.item_slider .caption{
+    position: absolute;
+    top: 10%;
+    right: 5px;
+    width: 250px;
+}
+
+.item_slider .caption h4{
+    border-bottom: 1px solid #fff;
+    font-family: 'Roboto', cursive;
+    color: #fff;
+    text-align: right;
+    font-size: 20PX;
+    padding-right: 5PX;
+
+}
+.item_slider .caption p{
+    font-family: 'Fredoka One', cursive;
+    color: #FA6515;
+    text-align: right;
+    font-size: 36px;
+}
+
 /***************************************************************************************
 ***************************************Footer******************************************/
 footer .container{
     background: #cecdcd;
 }
+.header-row.social-media{
+    padding-left: 140px;
+}
 
-.header-row{
-    font-weight: 600;
-    font-family: 'Roboto',cursive;
+.top-footer{
+    padding-bottom: 30px;
+}
+.bottom-footer{
+    border-top: 1px solid rgb(49, 47, 47);
+    padding-top: 20px;
+    width: 100%;
+    background:#cecdcd; 
+}
+.footer-logo{
+    font-size: 30px;
+    font-family: 'Righteous', cursive;
+    
+}
+.footer-logo i{
+    font-size: 30px;
+    padding-right: 10px; 
+}
+.copyright-tag{
+    margin-left: 250px;
+    font-weight: 300;
+    margin-top: 40px;
+}
+.copyright-tag span{
+    font-size: 20px;
+}
+.footer-logo-container:hover i{
+    color: #ffaa00;
+    transition: all .5s;
+}
+.footer-logo-container:hover{
+    color: #ffaa00;
+    transition: all .5s;
 }
 
 footer .link-item{
     color: rgb(29, 28, 28);
 }
+
 footer .link-item:hover{
     color: #1e8334;
     transition: all .3s;
@@ -81,8 +148,7 @@ footer .link-item:hover{
 .subscribe-form .email-input{
     margin-top: 2px;
     padding: 9.9px;
-    width: 280px;
-    
+    width: 280px;   
 }
 
 .subscribe-form .submit-btn{
@@ -91,8 +157,8 @@ footer .link-item:hover{
     background-color: #ffb31b;
     padding: 10px;
     font-family: 'Roboto',cursive;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
     box-shadow: 1px 2px 1px rgb(168, 110, 1);
     margin-bottom: 5px;
 }
@@ -104,8 +170,17 @@ footer .link-item:hover{
     font-family: 'Roboto',cursive;
     box-shadow: 1px 2px 1px rgb(168, 110, 1);
 }
+.success_show{
+    display: block;
+    }
+.success{
+    display: none;
+}
 
     
+
+/***************************************************************************************
+*********************************************************************************/
 .ali{
     color:#FA6515;
     color:   #B3FA05;
@@ -127,12 +202,4 @@ footer .link-item:hover{
     color:#055DBF;
     
 font-family: 'Roboto', sans-serif;
-}
-/***************************************************************************************
-***************************************Slider******************************************/
-.success_show{
-    display: block;
-    }
-.success{
-    display: none;
 }

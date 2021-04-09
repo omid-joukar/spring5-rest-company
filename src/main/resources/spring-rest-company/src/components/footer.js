@@ -5,7 +5,8 @@ import FooterSubscribeForm from './footerSubscribeForm';
 const Footer = () => (
     <>
     <footer>
-       <div className="container row col-sm-12 pl-5">
+       <div className="container col-sm-12 pl-5">
+            <div className="top-footer">
             <div className="header-row row col-sm-12">
                 <div className="col-sm-3  my-5">Navigation</div>
                 <div className="col-sm-3  my-5">Selling online</div>
@@ -47,6 +48,16 @@ const Footer = () => (
                 </div>
                 
             </div>
+       </div>
+       <div className="bottom-footer">
+       <div className="row col-sm-12 ">
+                <div className="col-sm-3 footer-logo">
+                    <div className="footer-logo-container"><i class="fas fa-store"></i>ANTIGYPTMARKT</div>
+                    </div>
+                    <div className="col-sm-5 copyright-tag">Copyright<span>&copy;</span> 2021 ANTIGYPT AG </div>
+            </div>
+           
+       </div>
        </div>
     </footer>
     </>
