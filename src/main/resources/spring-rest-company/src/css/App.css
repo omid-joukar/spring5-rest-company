@@ -209,4 +209,115 @@
 }
 
 
+.grocery.exited{
+    display: none;
+    transition: all .5s;
+}
+.grocery.exiting{
+    display: none;
+    transition: all .5s;
+}
+.grocery.entered{
+    display: block;    
+    transition: all .5s;
 
+}
+.grocery.entering{
+    transition: all .5s;
+
+}
+
+.household.exited{
+    display: none;
+    transition: all .5s;
+}
+.household.exiting{
+    display: none;
+    transition: all .5s;
+}
+.household.entered{
+    display: block;
+    transition: all .5s;
+
+}
+.household.entering{
+    transition: all .5s;
+    
+}
+.wine.exited{
+    display: none;
+    transition: all .5s;
+}
+.wine.exiting{
+    display: none;
+    transition: all .5s;
+}
+.wine.entered{
+    display: block;
+    transition: all .5s; 
+}
+.wine.entering{
+    
+    transition: all .5s;
+}
+
+
+
+
+
+
+
+
+.grocery .exited{
+    display: none;
+    transition: all .5s;
+}
+.grocery .exiting{
+    display: none;
+    transition: all .5s;
+}
+.grocery .entered{
+    display: block;    
+    transition: all .5s;
+    opacity: 1;
+}
+.grocery .entering{
+    transition: all .5s;
+    opacity:0;
+}
+
+.household .exited{
+    display: none;
+    transition: all .5s;
+}
+.household .exiting{
+    display: none;
+    transition: all .5s;
+}
+.household .entered{
+    display: block;
+    transition: all .5s;
+    opacity: 1;
+}
+.household .entering{
+    transition: all .5s;
+    opacity:0;
+    
+}
+.wine .exited{
+    display: none;
+    transition: all .5s;
+}
+.wine .exiting{
+    display: none;
+    transition: all .5s;
+}
+.wine .entered{
+    display: block;
+    transition: all .5s; 
+    opacity: 1;
+}
+.wine .entering{
+    opacity:0;
+    transition: all .5s;
+}
