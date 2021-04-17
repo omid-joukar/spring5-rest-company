@@ -48,7 +48,7 @@ class OnlineShopOffer extends Component {
 
         return (
             <>
-            <div className="container p-3 my-3">
+            <div className="container p-3 my-3 ">
                 <div className="col-sm-12 text-center offer-title">OFFERS FROM OUR ONLINESHOPS</div>
                     <nav>
                         <div className="col-sm-12 d-flex my-4 flex-row justify-content-center align-items-center offer-flex">
@@ -93,7 +93,7 @@ class OnlineShopOffer extends Component {
                         </div>
                     </nav> 
             </div>
-            <div className="col-sm-12 offer-slider-container  my-3">
+            <div className="col-sm-12 offer-slider-container ">
                     <Transition
                     in={this.state.grocery}
                     timeout={100}

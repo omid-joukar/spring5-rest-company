@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import {URL_SALES} from '../utils/pathes';
-
+import SaleHeader from './saleHeader';
 
 
 class Sale extends Component {
@@ -277,12 +277,10 @@ class Sale extends Component {
 
     
     render() {
-        console.log(this.state)
+        
         return (
             <>
-                <div className="container col-sm-12 text-center my-2 display-4">
-                    Sales
-                </div>
+                <SaleHeader/>  
                 <div className="container m-auto text-center col-sm-12 my-3 p-2">
                    { 
                         this.state.salesArray ?

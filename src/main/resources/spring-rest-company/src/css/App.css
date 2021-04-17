@@ -321,3 +321,26 @@
     opacity:0;
     transition: all .5s;
 }
+
+.slide-up.false{
+    transition: all 1s;
+    opacity: 0;
+    transform: translateX(-100%);
+}
+.slide-up.true.slide-up-enter-active{
+    margin-top: .3%;
+    transition: all 2s;
+    padding: 30px;
+    opacity: 1;
+    transform: translateX(0%);
+    background-color: #1e8334;
+
+    
+} 
+.slide-up.true.slide-up-enter-done{
+    margin-top: .1%;
+    opacity: 1;
+    padding: 30px;
+    background-color: #1e8334;
+    
+}
