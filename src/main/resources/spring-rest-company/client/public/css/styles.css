@@ -1,0 +1,318 @@
+/***************************************************************************************
+***************************************Header******************************************/
+
+
+header .container{
+    background: #cecdcd;
+    width: auto;
+    font-family: 'Righteous', cursive;
+    font-size:30px;
+    border-bottom: 10px solid #FFCE29;
+    }
+
+    .header-row{
+        font-weight: 600;
+        font-family: 'Roboto',cursive;
+    }
+    
+    
+.web-shop{
+    background-color:#FA6515;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 20px;
+    margin-left: 10px;
+    box-shadow: 1px 3px 3px rgb(94, 92, 92);
+    font-family: 'Roboto',cursive;
+    position: relative;   
+    text-align: center; 
+    box-sizing: border-box;
+    background-position: center center;
+}
+
+
+
+.web-shop:hover{
+    color: #707070;
+}
+   
+.login{
+    font-family: 'Roboto', cursive;
+    padding: 8.2px;
+    padding-right: 10px;
+    margin-left: -15px;
+    font-size: 20px;
+    border:1px solid white;
+    border-left: none;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    color: white;
+    
+}
+
+.login-icon .fas{
+    color: white;
+    font-size: 20px;
+    border:1px solid white;
+    padding: 10px;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    border-right:none;
+    margin-right: -24px;
+}
+
+
+/***************************************************************************************
+***************************************Slider******************************************/
+
+.slide-container .item_slider{
+    background-size: cover;
+    height: 460px;
+    position: relative;
+}
+.item_slider .caption{
+    position: absolute;
+    top: 10%;
+    right: 5px;
+    width: 250px;
+}
+
+.item_slider .caption h4{
+    border-bottom: 1px solid #fff;
+    font-family: 'Roboto', cursive;
+    color: #fff;
+    text-align: right;
+    font-size: 20PX;
+    padding-right: 5PX;
+
+}
+.item_slider .caption p{
+    font-family: 'Fredoka One', cursive;
+    color: #FA6515;
+    text-align: right;
+    font-size: 36px;
+}
+/***************************************************************************************
+***************************************OnlineShopOfferHome******************************************/
+
+.offer-title{
+    font-size: 30px;
+    font-family: 'Roboto',cursive;
+    font-weight: 500;
+    word-spacing: 17px;
+    letter-spacing: 6px;
+    
+}
+.offer-slider-container{
+    margin-bottom: 0% !important;
+    background-size: cover;
+}
+.offer-slider-container div{
+    transition: all 1s;
+    height: 470px;
+}
+.offer-slider-container div img{
+    margin: auto;
+}
+
+/***************************************************************************************
+***************************************Sales******************************************/
+.sale-container{
+    margin-top: 30px;
+    margin-bottom: 60px;
+    text-decoration: none;
+}
+.sale-item{
+    position:relative;
+    width: 287px;
+    height: 370px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-family: 'Roboto',cursive;
+    opacity: 85%;
+    transition:all .5s;
+    text-decoration: none;
+    margin-bottom: 80px;
+}
+.sale-item:hover{
+    text-decoration: none;
+    opacity: 100%;
+}
+.sale-item .item-percent{
+    opacity: 100%;
+    position: relative;
+    top: 100%;
+    height: 60px;
+    line-height: 60px;
+    text-decoration: none;
+    font-size: 25px;
+    background-color: #F31B2A;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: #fff;
+    transition: all .5s;
+}
+
+
+.slide-up{
+    transition: all 1s;
+    opacity: 0;
+}
+
+
+/***************************************************************************************
+***************************************Posts******************************************/
+.post-item{
+    width: 400px;
+    text-align: center;
+    margin: auto;
+    
+}
+.line-between{
+    border-right: 2px solid black;
+}
+.post-item p{
+    text-align: justify;
+}
+.post-title{
+    font-weight: 600!important;
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+.icon{
+    
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    
+    border:2px solid #1e8334; 
+    transition: all .3s;
+}
+.icon .icon-image{
+    color: #1e8334;
+    font-size: 30px;
+    margin: auto;
+    line-height: 45px;
+
+}
+.post-item:hover .icon .icon-image{
+    color: #fff;
+}
+.post-item:hover .icon {
+    background-color:  #1e8334;
+}
+
+
+/***************************************************************************************
+***************************************Footer******************************************/
+footer .container{
+    background: #cecdcd;
+}
+.header-row.social-media{
+    padding-left: 140px;
+}
+
+.top-footer{
+    padding-bottom: 30px;
+}
+.bottom-footer{
+    border-top: 1px solid rgb(49, 47, 47);
+    padding-top: 20px;
+    width: 100%;
+}
+.footer-logo{
+    font-size: 30px;
+    font-family: 'Righteous', cursive;
+    
+}
+.footer-logo i{
+    font-size: 30px;
+    padding-right: 10px; 
+}
+.copyright-tag{
+    margin-left: 250px;
+    font-weight: 300;
+    margin-top: 40px;
+}
+.copyright-tag span{
+    font-size: 20px;
+}
+.footer-logo-container:hover i{
+    color: #ffaa00;
+    transition: all .5s;
+}
+.footer-logo-container:hover{
+    color: #ffaa00;
+    transition: all .5s;
+}
+
+footer .link-item{
+    color: rgb(29, 28, 28);
+}
+
+footer .link-item:hover{
+    color: #1e8334;
+    transition: all .3s;
+}
+.subscribe-container{
+    margin-top: 40px;
+}
+.subscribe-form .email-input{
+    margin-top: 2px;
+    padding: 9.9px;
+    width: 280px;   
+}
+
+.subscribe-form .submit-btn{
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    background-color: #ffb31b;
+    padding: 10px;
+    font-family: 'Roboto',cursive;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    box-shadow: 1px 2px 1px rgb(168, 110, 1);
+    margin-bottom: 5px;
+}
+.subscribe-form .submit-btn:hover{
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    background-color:#ffaa00;
+    padding: 10px;
+    font-family: 'Roboto',cursive;
+    box-shadow: 1px 2px 1px rgb(168, 110, 1);
+}
+.success_show{
+    display: block;
+    }
+.success{
+    display: none;
+}
+
+    
+
+/***************************************************************************************
+*********************************************************************************/
+.ali{
+    color:#FA6515;
+    color:   #B3FA05;
+    color: #EB3B4D;
+    color: #FFCE29;
+    color: #67E278;
+    color: #d3d2d2;
+    color: #4D8D12;
+    color:#80B92E;
+    color:#FAE9DF;
+    color:#F66707;
+    color:#E7F1F3;
+    color:#BEEFF3;
+    color:#F31B2A;
+    color:#d42234;
+    color:#FBD3DC;
+    color:#05CA72;
+    color:#FFC658;
+    color:#055DBF;
+    
+font-family: 'Roboto', sans-serif;
+}
