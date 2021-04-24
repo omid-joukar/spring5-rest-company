@@ -119,14 +119,15 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
         post4.setContent("");
 
         Post post5 = new Post();
-        post5.setTopic("GROCERIES");
-        post5.setCover("groceries.jpg");
-        post5.setContent("");
+        post5.setTopic("AMAZING CUSTOMER SERVICE");
+        post5.setCover("<i class=\"fas fa-smile-wink\"></i>");
+        post5.setContent("We know how important good service is. Our friendly team members are here for you to answer your questions via e-mail or Facebook Messenger.Wether you order American, British or Dutch products!\n" +
+                "Always buy with peace of mind.");
 
         Post post6 = new Post();
-        post6.setTopic("GROCERIES");
-        post6.setCover("groceries.jpg");
-        post6.setContent("");
+        post6.setTopic("LOW SHIPPING ACROSS EUROPE");
+        post6.setCover("<i class=\"fas fa-shipping-fast\"></i>");
+        post6.setContent("Have you ever been frustrated by our competitors who promise low shipping and then still charge a lot? We truly offer low shipping across Europe. You pay €9,99 or less for each parcel up to 20 kilo. We ship to 24 countries/territories within the EU!");
 
         List<Post> postList = new ArrayList<>();
         postList.add(post1);
