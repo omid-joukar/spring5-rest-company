@@ -1,27 +1,16 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
-import {URL_POSTS } from '../utils/pathes';
+import {loadPosts} from '../../Store/Actions/post_actions';
+import {connect} from 'react-redux';
 
 
 
 class Posts extends Component{
 
-    state={
-        posts:[]
-    }
 
-    getPosts = async() =>{
-
-       const response = await axios.get(URL_POSTS);
-       const limitPosts = response.data.posts.slice(response.data.posts.length-2,response.data.posts.length)
-        this.setState({
-            posts:limitPosts
-        })
-    }
 
     componentDidMount(){
-        this.getPosts();
+        this.props.dispatch(loadPosts())
     }
     render(){
         
@@ -29,10 +18,10 @@ class Posts extends Component{
             <>
             <div className="post-title d-flex justify-content-center  ">THIS IS WHY YOU CHOOSE SHOP ANTIGYPT</div>
             {
-                this.state.posts ?
+                this.props.state.posts ?
                 <div className="sale-container  d-flex flex-row justify-content-around flex-wrap align-content-center ">
                                 {
-                                    this.state.posts.map( item =>(
+                                    this.props.state.posts.slice(this.props.state.posts.length-2,this.props.state.posts.length).map( item =>(
                                        
                                         <Link 
                                         to="" 
@@ -61,4 +50,9 @@ class Posts extends Component{
         )
     }
 }
-export default Posts;
+function mapStateToProps(state){
+    return{
+        state:state.post
+    }
+}
+export default connect(mapStateToProps)(Posts);
