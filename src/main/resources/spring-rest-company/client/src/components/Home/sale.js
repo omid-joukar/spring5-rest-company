@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import {Link} from 'react-router-dom';
-import {URL_SALES} from '../utils/pathes';
 import SaleHeader from './saleHeader';
+import {connect} from 'react-redux';
+import {loadSales} from '../../Store/Actions/sale_actions';
 
 
 class Sale extends Component {
     
     state = {
-        salesArray : [],
         firstSale:{
             object : {},
             active:false,     
@@ -262,31 +261,29 @@ class Sale extends Component {
     }
     
     componentDidMount(){
-        axios.get(URL_SALES)
-            .then(response =>{
-                   this.setState({
-                        salesArray: response.data.sales,
-                   })
-                   this.state.firstSale.object = this.state.salesArray[0]; 
-                   this.state.secondSale.object = this.state.salesArray[1];
-                   this.state.thirdSale.object = this.state.salesArray[2];
-                   this.state.fourthSale.object = this.state.salesArray[3];
-            })
+                    this.props.dispatch(loadSales())
+                   
+            }
+    componentDidUpdate(){
+        this.state.firstSale.object = this.props.state.sales[0]; 
+        this.state.secondSale.object = this.props.state.sales[1];
+        this.state.thirdSale.object = this.props.state.sales[2];
+        this.state.fourthSale.object = this.props.state.sales[3]; 
     }
     
 
     
     render() {
-        
+        console.log(this.props.state);
         return (
             <>
                 <SaleHeader/>  
                 <div className="container m-auto text-center col-sm-12 my-3 p-2">
                    { 
-                        this.state.salesArray ?
+                        this.props.state.sales ?
                             <div className="sale-container  d-flex flex-row justify-content-around flex-wrap align-content-center">
                                 {
-                                    this.state.salesArray.map( item =>(
+                                    this.props.state.sales.map( item =>(
                                         
                                         <Link 
                                         to="" 
@@ -311,4 +308,9 @@ class Sale extends Component {
         )
     }
 }
-export default Sale;
+function mapStateToProps(state){
+    return{
+        state:state.sale
+    }
+}
+export default connect(mapStateToProps)(Sale);
