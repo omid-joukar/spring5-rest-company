@@ -61,7 +61,7 @@ render(){
                     </Link>
         
                 <nav>
-                     <CSSTransition
+                     {/* <CSSTransition
                      in={this.state.loginShow}
                      timeout={500}
                      classNames="login-icon">
@@ -71,7 +71,7 @@ render(){
                         className={`login-icon ${this.state.loginShow} clo-sm-2 text-decoration-none `}>
                             <i class="fas fa-user"></i>
                         </Link>
-                     </CSSTransition> 
+                     </CSSTransition>  */}
                      <CSSTransition
                      in={this.state.loginShow}
                      timeout={500}
@@ -80,6 +80,7 @@ render(){
                         to="/login" 
                         onClick={this.showloginshow}
                         className={`login ${this.state.loginShow} clo-sm-2 text-decoration-none `}>
+                             <i class="fas fa-user"></i>
                             <span className="line" style={{padding:'5px'}}>|</span>
                             Login
                         </Link>

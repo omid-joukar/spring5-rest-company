@@ -6,12 +6,8 @@ const app = express();
 app.use(bodyParser.json());
 
 
-//Routes
 
 
-app.get("/" ,(req,res)=>{
-    res.redirect
-})
 
 
 
