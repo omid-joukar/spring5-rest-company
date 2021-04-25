@@ -19,7 +19,7 @@ class HomeSlider extends Component{
 
 
 render(){
-    console.log(this.props.state.slides)
+    
     return(
         <>
         
