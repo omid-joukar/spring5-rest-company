@@ -12,6 +12,11 @@ export const validate = (element)=>{
         const message = `${!valid ? 'This field is required' : ''}`;
         error = [valid,message]
     }  
+    if(element.validator.password){
+        const valid = element.value.length >=5;
+        const message = `${!valid ? 'Must be greater than 5':''}`;
+        error = [valid,message]
+    }
     
 return error;
 }

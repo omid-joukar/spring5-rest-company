@@ -93,6 +93,116 @@ header .container{
     text-align: right;
     font-size: 36px;
 }
+
+
+/***************************************************************************************
+***************************************Signin******************************************/
+
+.labelError{
+    color:#ff5722;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.Container h1{
+    text-align: center;
+    color: #FFCE29;
+}
+p{
+    color: #FFCE29;
+}
+
+.bg-img{
+    width: 100%;
+    height: 670px;
+    
+}
+.container{
+    position: relative;
+    height: 100%;
+    align-items: center;
+    align-content: space-between;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    }
+
+
+.container-form {
+    margin-left: 35%;
+    height: 470px;
+    padding: 16px;
+    border-radius: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(0,0,0,0.6) !important;
+}
+
+.social_icon span{
+    position: absolute;
+    margin-top: -85px;
+    margin-left:150px;
+    font-size: 80px;
+    color: #4CAF50;
+    justify-content: center;
+}
+.social_icon span:hover{
+    color: white;
+    cursor: pointer;
+    }
+.Container .btn-login{
+    background: #4CAF50;
+    opacity: 0.8;
+    font-size: 25px;
+    padding:10px;
+    color: whitesmoke;
+    margin-top:30px;
+    border-radius: 5px;
+    width: 100%;
+    color: #FFCE29;
+}
+.Container .btn-login:hover{
+   color:white;
+   opacity: 1;
+}
+.Container .btn-signin{
+    background: #4CAF50;
+    opacity: 0.8;
+    font-size: 13px;
+    padding:5px;
+    color: #FFCE29;
+    border-radius: 5px;
+    width: 100%;
+}
+.Container .btn-signin:hover{
+    color:white;
+    opacity: 1;
+ }
+
+.form-br{
+    width: 100%;
+    border-radius: 5px;
+    padding:3px;
+    
+}
+
+    h6{
+        color:  #F31B2A;
+        text-align: center;
+        margin-top: 10px;
+        text-shadow: 2px 2px black;
+    }
+    
+    .loginError{
+        font-family: 'Roboto', cursive;
+        font-size: 20px;
+        color:  #F31B2A;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+
+
+
 /***************************************************************************************
 ***************************************OnlineShopOfferHome******************************************/
 
