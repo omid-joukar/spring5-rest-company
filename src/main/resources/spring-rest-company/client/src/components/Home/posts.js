@@ -36,7 +36,7 @@ class Posts extends Component{
                                                 
 
                                                 <h4 className="mt-3">{item.topic}</h4> 
-                                                <p className="mt-3">{item.content}</p>
+                                                <p className="mt-3 text-dark">{item.content}</p>
                                         </Link> 
                                        
                                     
