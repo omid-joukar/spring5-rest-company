@@ -46,23 +46,23 @@ public class UserBootstrap implements CommandLineRunner {
         roleRepository.saveAll(Arrays.asList(adminRole,customerRole));
 
         User userOne = User.builder()
-                .username("omid")
+                .username("omid@gmail.com")
                 .password(passwordEncoder.encode("password"))
                 .role(adminRole)
                 .build();
 
         User userTwo = User.builder()
-                .username("rouzbeh")
+                .username("rouzbeh@gmail.com")
                 .password(passwordEncoder.encode("password"))
                 .role(adminRole)
                 .build();
         User userThree = User.builder()
-                .username("hoda")
+                .username("hoda@gmail.com")
                 .password(passwordEncoder.encode("password"))
                 .role(adminRole)
                 .build();
         User userFour = User.builder()
-                .username("masoud")
+                .username("masoud@gmail.com")
                 .password(passwordEncoder.encode("password"))
                 .role(customerRole)
                 .build();

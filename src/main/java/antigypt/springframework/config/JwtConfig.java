@@ -8,9 +8,18 @@ import org.springframework.context.annotation.Configuration;
 public class JwtConfig {
     private String secretKey;
     private String tokenPrefix;
-    private String tokenExpirationAfterDays;
+    private String authorizationHeader;
+    private Long tokenExpirationAfterDays;
 
     public JwtConfig() {
+    }
+
+    public String getAuthorizationHeader() {
+        return authorizationHeader;
+    }
+
+    public void setAuthorizationHeader(String authorizationHeader) {
+        this.authorizationHeader = authorizationHeader;
     }
 
     public String getSecretKey() {
@@ -29,11 +38,11 @@ public class JwtConfig {
         this.tokenPrefix = tokenPrefix;
     }
 
-    public String getTokenExpirationAfterDays() {
+    public Long getTokenExpirationAfterDays() {
         return tokenExpirationAfterDays;
     }
 
-    public void setTokenExpirationAfterDays(String tokenExpirationAfterDays) {
+    public void setTokenExpirationAfterDays(Long tokenExpirationAfterDays) {
         this.tokenExpirationAfterDays = tokenExpirationAfterDays;
     }
 }
